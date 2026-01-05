@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jake's Motor Spares</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Icons (FontAwesome for motors) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jake's Motors | Motor Spares</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <style>
-    /* Basic Reset */
     * {
       margin: 0;
       padding: 0;
@@ -17,123 +19,188 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background: #0f0c29;  /* Dark gradient background */
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top, #0f2027, #000);
       color: #fff;
       overflow-x: hidden;
     }
 
+    /* ===== HEADER ===== */
     header {
       text-align: center;
-      padding: 5rem 1rem 2rem;
-      position: relative;
+      padding: 4rem 1rem 2rem;
     }
 
     header h1 {
       font-size: 3rem;
-      font-weight: 700;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
-      margin-bottom: 1rem;
+      color: #00fff7;
+      text-shadow:
+        0 0 10px #00fff7,
+        0 0 20px #00fff7,
+        0 0 40px #00c8ff;
+      animation: pulseGlow 2.5s infinite;
     }
 
     header p {
-      font-size: 1.2rem;
-      color: #ffffffaa;
-      margin-bottom: 2rem;
+      margin-top: 1rem;
+      color: #b9faff;
+      opacity: 0.9;
+      font-size: 1.1rem;
     }
 
-    .btn {
-      text-decoration: none;
-      color: #0f0c29;
-      background: linear-gradient(45deg, #00ffff, #ff00ff);
-      padding: 0.8rem 2rem;
-      border-radius: 50px;
-      font-weight: bold;
-      transition: 0.3s;
-      margin: 0 1rem;
-      display: inline-block;
+    @keyframes pulseGlow {
+      0%, 100% { text-shadow: 0 0 10px #00fff7; }
+      50% { text-shadow: 0 0 30px #00fff7, 0 0 60px #00c8ff; }
     }
 
-    .btn:hover {
-      background: linear-gradient(45deg, #ff00ff, #00ffff);
-      box-shadow: 0 0 15px #00ffff, 0 0 30px #ff00ff;
-      color: #fff;
+    /* ===== ICON STRIP ===== */
+    .icon-strip {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0;
     }
 
-    /* Floating motor icons */
-    .floating-icons {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: -1;
+    .icon-strip i {
+      font-size: 2.5rem;
+      color: #00fff7;
+      filter: drop-shadow(0 0 15px #00fff7);
+      animation: float 4s ease-in-out infinite;
     }
 
-    .floating-icons i {
-      position: absolute;
-      font-size: 2rem;
-      color: #00ffff;
-      opacity: 0.7;
-      animation: float 10s linear infinite;
-    }
+    .icon-strip i:nth-child(2) { animation-delay: 1s; }
+    .icon-strip i:nth-child(3) { animation-delay: 2s; }
+    .icon-strip i:nth-child(4) { animation-delay: 3s; }
 
     @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0.5;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100vh) rotate(360deg);
-        opacity: 0.5;
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
 
-    /* Footer */
+    /* ===== SERVICES ===== */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #0a2a33, #000);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow:
+        0 0 20px rgba(0, 255, 247, 0.2),
+        inset 0 0 20px rgba(0, 255, 247, 0.1);
+      animation: pulseCard 3s infinite;
+    }
+
+    .card i {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #00fff7;
+      text-shadow: 0 0 15px #00fff7;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    @keyframes pulseCard {
+      0%, 100% { box-shadow: 0 0 15px rgba(0,255,247,.3); }
+      50% { box-shadow: 0 0 35px rgba(0,255,247,.6); }
+    }
+
+    /* ===== ACTION BUTTONS ===== */
+    .actions {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .action-btn {
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #00fff7, #00c8ff);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 25px #00fff7;
+      animation: pulseBtn 2s infinite;
+    }
+
+    .action-btn.whatsapp {
+      background: linear-gradient(45deg, #25d366, #00ff9c);
+      box-shadow: 0 0 25px #25d366;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #ffffff88;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
+      font-size: 0.8rem;
+      opacity: 0.6;
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Jake's Motor Spares</h1>
-    <p>Your trusted local motor spares in Randfontein</p>
-    <a href="products.html" class="btn">View Products</a>
-    <a href="contact.html" class="btn">Contact Us</a>
 
-    <!-- Floating motor icons -->
-    <div class="floating-icons">
-      <i class="fas fa-cogs" style="left: 10%; animation-duration: 12s;"></i>
-      <i class="fas fa-car" style="left: 25%; animation-duration: 15s;"></i>
-      <i class="fas fa-tools" style="left: 40%; animation-duration: 18s;"></i>
-      <i class="fas fa-bolt" style="left: 55%; animation-duration: 14s;"></i>
-      <i class="fas fa-gas-pump" style="left: 70%; animation-duration: 16s;"></i>
-      <i class="fas fa-car-side" style="left: 85%; animation-duration: 13s;"></i>
-    </div>
+<body>
+
+  <header>
+    <h1>Jake's Motors</h1>
+    <p>High-Performance Motor Spares & Vehicle Parts</p>
   </header>
 
+  <div class="icon-strip">
+    <i class="fas fa-car"></i>
+    <i class="fas fa-cogs"></i>
+    <i class="fas fa-tools"></i>
+    <i class="fas fa-truck-pickup"></i>
+  </div>
+
+  <section class="services">
+    <div class="card">
+      <i class="fas fa-car-battery"></i>
+      <h3>Vehicle Spares</h3>
+      <p>Quality replacement parts for cars & bakkies</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-oil-can"></i>
+      <h3>Engine & Service Parts</h3>
+      <p>Filters, belts, oils & engine components</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-tools"></i>
+      <h3>Accessories</h3>
+      <p>Automotive tools & vehicle accessories</p>
+    </div>
+  </section>
+
+  <div class="actions">
+    <a href="contact.html" class="action-btn">Contact Us</a>
+    <a href="#" class="action-btn whatsapp">WhatsApp Us</a>
+  </div>
+
   <footer>
-    &copy; 2026 Jake's Motor Spares - 20 Main Reef Rd, Randfontein
+    © 2026 Jake's Motors · Motor Spares · Randfontein
   </footer>
+
 </body>
 </html>
