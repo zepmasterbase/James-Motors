@@ -29,6 +29,7 @@
     header {
       text-align: center;
       padding: 4rem 1rem 2rem;
+      position: relative;
     }
 
     header h1 {
@@ -51,6 +52,32 @@
     @keyframes pulseGlow {
       0%, 100% { text-shadow: 0 0 10px #00fff7; }
       50% { text-shadow: 0 0 30px #00fff7, 0 0 60px #00c8ff; }
+    }
+
+    /* ===== NEW: FLOATING PARTS ICONS ===== */
+    .floating-parts {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .floating-parts i {
+      font-size: 2.2rem;
+      color: #00fff7;
+      text-shadow: 0 0 15px #00fff7;
+      animation: floatParts 4s ease-in-out infinite;
+      opacity: 0.85;
+    }
+
+    .floating-parts i:nth-child(2) { animation-delay: 1s; }
+    .floating-parts i:nth-child(3) { animation-delay: 2s; }
+    .floating-parts i:nth-child(4) { animation-delay: 3s; }
+    .floating-parts i:nth-child(5) { animation-delay: 4s; }
+
+    @keyframes floatParts {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
     }
 
     /* ===== ICON STRIP ===== */
@@ -164,6 +191,15 @@
   <header>
     <h1>Jake's Motors</h1>
     <p>High-Performance Motor Spares & Vehicle Parts</p>
+
+    <!-- NEW: Floating vehicle parts icons -->
+    <div class="floating-parts">
+      <i class="fas fa-car-battery"></i>
+      <i class="fas fa-cog"></i>
+      <i class="fas fa-oil-can"></i>
+      <i class="fas fa-tools"></i>
+      <i class="fas fa-bolt"></i>
+    </div>
   </header>
 
   <div class="icon-strip">
